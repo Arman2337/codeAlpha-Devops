@@ -19,8 +19,9 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         
-    - name: Build with Gradle
+    - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v4
-      with:
-        arguments: build
-        build-root-directory: task3_java_gradle
+      
+    - name: Build with Gradle
+      run: ./gradlew build
+      working-directory: task3_java_gradle
