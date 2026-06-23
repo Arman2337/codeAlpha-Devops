@@ -1,0 +1,36 @@
+# Node.js (Task 1)
+node_modules/
+npm-debug.log
+yarn-error.log
+.env
+.env.test
+
+# Java / Gradle (Task 3)
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+.idea/
+*.iml
+*.class
+*.log
+
+# Jenkins (Task 2)
+jenkins_home/
+remote-agent/
+*.jar
+secret-file
+
+# Docker
+.docker/
+docker-compose.override.yml
+
+# OS Generated
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.vscode/
+*.swp
+*.swo
