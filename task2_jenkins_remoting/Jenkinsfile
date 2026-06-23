@@ -1,0 +1,38 @@
+pipeline {
+    agent {
+        // This explicitly tells Jenkins to run this pipeline on the remote agent
+        // instead of the built-in node (master).
+        label 'remote-agent'
+    }
+
+    stages {
+        stage('Hello from Remote Agent') {
+            steps {
+                echo "This pipeline is executing on a remote node!"
+                sh 'hostname'
+                sh 'whoami'
+            }
+        }
+        
+        stage('Test Docker Availability') {
+            steps {
+                echo "Checking if the remote agent can build Docker images..."
+                sh 'docker --version'
+            }
+        }
+
+        stage('Simulate Build Load') {
+            steps {
+                echo "Simulating a build process to distribute load..."
+                sh 'sleep 5'
+                echo "Build complete."
+            }
+        }
+    }
+
+    post {
+        always {
+            echo "Pipeline finished executing on the remote node."
+        }
+    }
+}
